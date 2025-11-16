@@ -17,5 +17,16 @@ def ask_gemini(prompt: str) -> str:
     return response.text
 
 if __name__ == "__main__":
-    reply = ask_gemini("how good are you ?")
-    print("AI: ",reply)
+    print("Ai - Type ExitChat if you want to exit")
+
+    while True:
+        user_input = input("You: ")
+
+        if user_input.strip() == "ExitChat":
+            print("see you another time")
+            break
+        if user_input.strip():
+            reply = ask_gemini(user_input)
+            print(f"AI: {reply}\n")
+        else:
+            print("please enter a message. \n")
